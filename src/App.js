@@ -9,7 +9,7 @@ function App() {
   const [todos, setTodos] = useState([]);
   const [infoText, setInfoText] = useState('');
   const [checked, setChecked] = useState(false);
-  //const [checkedList, setCheckedList] = useState(0);
+  //const [checkedList, setCheckedList] = useState([]);
 
   const change = (e) => {
     setInput(e.target.value);
@@ -39,7 +39,7 @@ function App() {
     setInfoText(info);
   }
 
-  function checkedItem() {
+  function toggle() {
     setChecked(!checked);
   }
 
@@ -55,7 +55,8 @@ function App() {
         key={todos}
         value={todos}
         deleteEachList={deleteEachList}
-        checkedItem={checkedItem}
+        checked={checked}
+        checkedItem={toggle}
       />
       <Control
         count={todos.length}

@@ -29,8 +29,12 @@ export default function Todos(props) {
                   {...checkbox}
                 />
                 <span css={checkedStyle}>{todo}</span> ☞☞☞
-                
-                <button className="removeButton" onClick={props.deleteEachList}>remove</button>
+                <button
+                  className="removeButton"
+                  onClick={() => props.deleteEachList(i)}
+                >
+                  remove
+                </button>
               </label>
             </>
           );
