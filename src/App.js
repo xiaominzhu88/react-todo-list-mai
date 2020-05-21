@@ -14,7 +14,7 @@ function App() {
   };
 
   // Add input list, use [...todos], if there is no input then null
-  function add() {
+  function add(e) {
     setInput('');
     return input ? setTodos([...todos, input]) : null;
   }
@@ -27,10 +27,11 @@ function App() {
     setTodos(newTodos);
   }
 
-  // clear all the todo lists and set the info text to empty string
-  function clearAll() {
+  // clear all the todo lists
+  function clear() {
     setTodos([]);
   }
+
   //function activ() {
   //  const info = `${todos.length} activ`;
   //
@@ -40,17 +41,20 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Todo-List</h1>
-      <input value={input} onChange={change} />
+      <h1>TODO</h1>
+      <input value={input} onChange={change} placeholder="Enter task" />
       <button className="addButton" onClick={add}>
         add
       </button>
 
       <Todos todos={todos} deleteEachList={deleteEachList} />
 
-      <Control count={todos.length} setTodos={setTodos} clear={clearAll} />
+      <Control count={todos.length} setTodos={setTodos} clear={clear} />
 
-      <p className="copyright">&copy; Zhu 2020</p>
+      <footer>
+       <p className="copyright">&copy;opyright </p>
+        <p className="copyright">Zhu 2020</p>
+      </footer>
     </div>
   );
 }

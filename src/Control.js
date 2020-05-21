@@ -5,8 +5,8 @@ export default function Control(props) {
   return (
     <div className="control">
       <ul className="control-table">
-        <li key={props.count}>
-          <span style={{ color: 'rgb(54, 54, 211)', fontSize: '1.5rem' }}>
+        <li key={Date.now()}>
+          <span style={{ color: 'orange', fontSize: '1.5rem' }}>
             {props.count}
           </span>{' '}
           todos
