@@ -7,19 +7,19 @@ import './App.css';
 function App() {
   const [input, setInput] = useState('');
   const [todos, setTodos] = useState([]);
-  const [infoText, setInfoText] = useState('');
-  const [checked, setChecked] = useState(false);
-  //const [checkedList, setCheckedList] = useState([]);
 
+  // Input possibility
   const change = (e) => {
     setInput(e.target.value);
   };
 
+  // Add input list, use [...todos], if there is no input then null
   function add() {
     setInput('');
     return input ? setTodos([...todos, input]) : null;
   }
 
+  // Delete each list, use 'filter' to show the new lists, which do not have the same index to the list which has to be deleted, set the todo list to this new lists
   function deleteEachList(indexToDelate) {
     const newTodos = todos.filter((item, index) => {
       return index !== indexToDelate;
@@ -27,23 +27,17 @@ function App() {
     setTodos(newTodos);
   }
 
+  // clear all the todo lists and set the info text to empty string
   function clearAll() {
     setTodos([]);
-    setInfoText('');
   }
+  //function activ() {
+  //  const info = `${todos.length} activ`;
+  //
+  //  setTodos(todos);
+  //  setInfoText(info);
+  //}
 
-  function completed() {
-    const info = `${todos.length} completed`;
-
-    setTodos(todos);
-    setInfoText(info);
-  }
-
-  function toggle() {
-    setChecked(!checked);
-  }
-
-  
   return (
     <div className="App">
       <h1>Todo-List</h1>
@@ -51,19 +45,11 @@ function App() {
       <button className="addButton" onClick={add}>
         add
       </button>
-      <Todos
-        key={todos}
-        value={todos}
-        deleteEachList={deleteEachList}
-        checked={checked}
-        checkedItem={toggle}
-      />
-      <Control
-        count={todos.length}
-        clear={clearAll}
-        completed={completed}
-        infoText={infoText}
-      />
+
+      <Todos todos={todos} deleteEachList={deleteEachList} />
+
+      <Control count={todos.length} setTodos={setTodos} clear={clearAll} />
+
       <p className="copyright">&copy; Zhu 2020</p>
     </div>
   );

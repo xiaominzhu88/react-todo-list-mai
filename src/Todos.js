@@ -15,22 +15,33 @@ export default function Todos(props) {
 
   return (
     <div>
+      {/* Use 'map' to map over the todos from parent App.js to get each list, include remove button and checkbox input */}
+
       <ul className="todos">
-        {props.value.map((todo, i) => {
+        {props.todos.map((todo, i) => {
           return (
             <>
               <label>
                 <Checkbox
                   style={{ display: 'block' }}
                   className="listItem"
-                  key={`${todo}_${i}`}
                   value={todo}
-                  onChange={props.checkedItem}
                   {...checkbox}
                 />
-                <span css={checkedStyle}>{todo}</span> ☞☞☞
+                <span
+                  css={checkedStyle}
+                  //style={{
+                  //  textDecorationLine: !checkbox.state
+                  //    ? 'line-through'
+                  //    : 'none'
+                  //}}
+                >
+                  {todo}
+                </span>{' '}
+                ☞☞☞
                 <button
                   className="removeButton"
+                  // !! pass the deleteEachList function Call with current index, to get this function called in parent App.js
                   onClick={() => props.deleteEachList(i)}
                 >
                   remove
@@ -40,6 +51,21 @@ export default function Todos(props) {
           );
         })}
       </ul>
+      {/* !! Update the 'checked Text', if there is no checked list, then no display, otherwise add the 'checked' list-name to the text */}
+      <div
+        style={{
+          display: !checkbox.state.length ? 'none' : 'block',
+          backgroundColor: 'rgb(177, 176, 176)',
+          padding: '1rem',
+          width: '40%',
+          margin: '0 auto',
+          borderRadius: '5px',
+          color: 'rgb(54, 54, 211)',
+          boxShadow: '0px 3px 3px orange',
+        }}
+      >
+        Complete: {checkbox.state.join(', ')}
+      </div>
     </div>
   );
 }

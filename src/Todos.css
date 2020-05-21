@@ -23,3 +23,7 @@ input.listItem {
   background-color: rgb(54, 54, 211);
   color:#fff;
 }
+.removeButton:hover {
+  background-color: darkgoldenrod;
+  color: #fff;
+}
