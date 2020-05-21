@@ -1,0 +1,57 @@
+.App {
+  margin: 0 auto;
+  text-align: center;
+  background-image: url('./images.jpg');
+  background-size: cover;
+  background-position: top right;
+  font-family: fantasy;
+  height:100%;
+  background-attachment: fixed;
+  height: 600px;
+  opacity: 0.8;
+  font-weight:bold;
+}
+
+h1 {
+  font-size: 4rem;
+  margin-bottom:3rem;
+  font-family: cursive;
+  position: relative;
+  top: 60px;
+  text-align: center;
+  color: rgb(33, 24, 155);
+  text-shadow: 0px 3px 3px rgb(30, 104, 15);
+  letter-spacing: 4px;
+}
+
+.addButton {
+  margin-left: 2rem;
+  box-shadow: 0px 2px 3px gray;
+  width: 4rem;
+  height: 3em;
+  font-weight: 700;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.addButton:hover {
+  background-color: darkgoldenrod;
+  color: #fff;
+}
+input {
+  width: 10rem;
+  height: 3em;
+  box-shadow: 0px 2px 3px gray;
+  font-weight: 700;
+  font-size:0.7rem;
+}
+.copyright {
+  background-color: black;
+  color: #fff;
+  font-weight: bold;
+  font-size: 0.9em;
+  font-family: sans-serif;
+  height: 2em;
+  padding-top: 0.5em;
+  text-align: center;
+}
