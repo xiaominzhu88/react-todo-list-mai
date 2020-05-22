@@ -40,7 +40,11 @@ function App() {
         add
       </button>
 
-      <Todos todos={todos} deleteEachList={deleteEachList} />
+      <Todos
+        todos={todos}
+        deleteEachList={deleteEachList}
+        setTodos={setTodos}
+      />
 
       <Control count={todos.length} setTodos={setTodos} clear={clear} />
 

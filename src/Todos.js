@@ -9,26 +9,36 @@ import './Todos.css';
 export default function Todos(props) {
   const checkbox = useCheckboxState({ state: [] });
   const [showCompletedValue, setShowCompletedValue] = useState(true);
+  const [checked, setChecked] = useState(false);
 
   // Css for the lists
-  const checkedStyle = css`
+  const listStyle = css`
     margin-right: 2rem;
-    /*text-decoration-line: line-through;*/
   `;
 
   // Css for toggle button
   const buttonStyle = css`
     background-color: rgb(177, 176, 176);
     padding: 1rem;
-    width: 10%;
+    width: 15%;
     margin: 0 auto;
     border-radius: 8px;
     color: rgb(54, 54, 211);
     box-shadow: 0px 3px 3px orange;
     margin-bottom: 1rem;
+    font-family: fantasy;
+    font-weight: bold;
+    font-size: 0.6rem;
   `;
 
-  
+  // Toggle each list with checked / unchecked
+  function handleClick(e, todo) {
+    const newState = {};
+    newState[todo] = !checked[todo];
+    setChecked({ ...checked, ...newState });
+  }
+
+  console.log(checked);
 
   return (
     <div className="todos">
@@ -41,15 +51,16 @@ export default function Todos(props) {
                 style={{ display: 'block' }}
                 className="listItem"
                 value={todo}
+                onClick={(i) => handleClick(i, todo)}
                 {...checkbox}
               />
               <span
-                css={checkedStyle}
-                //  style={{
-                //    textDecorationLine:
-                //      ? 'line-through'
-                //      : 'none',
-                //  }}
+                css={listStyle}
+                style={{
+                  textDecoration: checked[todo]
+                    ? 'line-through solid red'
+                    : 'none',
+                }}
               >
                 {todo}
               </span>{' '}
@@ -73,7 +84,7 @@ export default function Todos(props) {
           setShowCompletedValue(!showCompletedValue);
         }}
       >
-        Show/Hide Complete{' '}
+        Complete{' '}
       </button>
 
       {/* !! Update the 'completed list', if there is no checked list, then no display, otherwise add the 'completed' list-name to the 'toggle-TEXT' */}
@@ -83,14 +94,14 @@ export default function Todos(props) {
             display: !checkbox.state.length ? 'none' : 'block',
             backgroundColor: 'rgb(177, 176, 176)',
             padding: '1rem',
-            width: '30%',
+            width: '40%',
             margin: '0 auto',
             borderRadius: '8px',
             color: 'rgb(54, 54, 211)',
             boxShadow: '0px 3px 3px orange',
           }}
         >
-          Complete to uncheck: <br />
+          Complete: <br />
           {checkbox.state.join(' 🔶 ')} <br />
         </div>
       ) : null}

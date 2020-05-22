@@ -46,6 +46,7 @@ input {
   box-shadow: 0px 2px 3px gray;
   font-weight: 700;
   font-size: 0.7rem;
+  padding-left:30px;
 }
 
 footer {
