@@ -1,7 +1,7 @@
 import React from 'react';
 import './Control.css';
 
-export default function Control(props) {
+export default function Control(props,i) {
   return (
     <div className="control">
       <ul className="control-table">
@@ -12,7 +12,7 @@ export default function Control(props) {
           todos
         </li>
 
-        <li className="li" key="active" onClick={props.activ}>
+        <li className="li" key="active" onClick={()=>{}}>
           Active
         </li>
 

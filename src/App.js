@@ -32,13 +32,6 @@ function App() {
     setTodos([]);
   }
 
-  //function activ() {
-  //  const info = `${todos.length} activ`;
-  //
-  //  setTodos(todos);
-  //  setInfoText(info);
-  //}
-
   return (
     <div className="App">
       <h1>TODO</h1>
@@ -52,7 +45,7 @@ function App() {
       <Control count={todos.length} setTodos={setTodos} clear={clear} />
 
       <footer>
-       <p className="copyright">&copy;opyright </p>
+        <p className="copyright">&copy;opyright </p>
         <p className="copyright">Zhu 2020</p>
       </footer>
     </div>
