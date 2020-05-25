@@ -8,8 +8,8 @@ import './Todos.css';
 
 export default function Todos(props) {
   const checkbox = useCheckboxState({ state: [] });
-  const [showCompletedValue, setShowCompletedValue] = useState(true);
-  const [checked, setChecked] = useState(false);
+  //const [showCompletedValue, setShowCompletedValue] = useState(true);
+  //const [checked, setChecked] = useState(false);
 
   // Css for the lists
   const listStyle = css`
@@ -17,33 +17,33 @@ export default function Todos(props) {
   `;
 
   // Css for toggle button
-  const buttonStyle = css`
-    background-color: rgb(177, 176, 176);
-    padding: 1rem;
-    width: 15%;
-    margin: 0 auto;
-    border-radius: 8px;
-    color: rgb(54, 54, 211);
-    box-shadow: 0px 3px 3px orange;
-    margin-bottom: 1rem;
-    font-family: fantasy;
-    font-weight: bold;
-    font-size: 0.6rem;
-  `;
+//  const buttonStyle = css`
+//    background-color: rgb(177, 176, 176);
+//    padding: 1rem;
+//    width: 15%;
+//    margin: 0 auto;
+//    border-radius: 8px;
+//    color: rgb(54, 54, 211);
+//    box-shadow: 0px 3px 3px orange;
+//    margin-bottom: 1rem;
+//    font-family: fantasy;
+//    font-weight: bold;
+//    font-size: 0.6rem;
+//  `;
 
   // Toggle each list with checked / unchecked
-  function handleClick(e, todo) {
-    const newState = {};
-    newState[todo] = !checked[todo];
-    setChecked({ ...checked, ...newState });
-  }
+ // function handleClick(e, todo) {
+ //   const newState = {};
+ //   newState[todo] = !checked[todo];
+ //   setChecked({ ...checked, ...newState });
+ // }
 
-  console.log(checked);
+  //console.log(checked);
 
   return (
     <div className="todos">
       {/* Use 'map' to map over the todos from parent App.js to get each list, include remove button and checkbox input */}
-      {props.todos.map((todo, i) => {
+      {props.todoLists.map((todo, i) => {
         return (
           <div>
             <label>
@@ -51,16 +51,16 @@ export default function Todos(props) {
                 style={{ display: 'block' }}
                 className="listItem"
                 value={todo}
-                onClick={(i) => handleClick(i, todo)}
+                //onClick={(i) => props.handleClick(i, todo)}
                 {...checkbox}
               />
               <span
                 css={listStyle}
-                style={{
-                  textDecoration: checked[todo]
-                    ? 'line-through solid red'
-                    : 'none',
-                }}
+            //    style={{
+            //      textDecoration: checked[todo]
+            //        ? 'line-through solid red'
+            //        : 'none',
+            //    }}
               >
                 {todo}
               </span>{' '}
@@ -78,7 +78,7 @@ export default function Todos(props) {
       })}
 
       {/* Toggle Button, it remembers the complete lists wenn give the same input, then i can choose if to remove it */}
-      <button
+    {/*  <button
         css={buttonStyle}
         onClick={() => {
           setShowCompletedValue(!showCompletedValue);
@@ -88,7 +88,7 @@ export default function Todos(props) {
       </button>
 
       {/* !! Update the 'completed list', if there is no checked list, then no display, otherwise add the 'completed' list-name to the 'toggle-TEXT' */}
-      {showCompletedValue ? (
+    {/*  {showCompletedValue ? (
         <div
           style={{
             display: !checkbox.state.length ? 'none' : 'block',
@@ -104,7 +104,7 @@ export default function Todos(props) {
           Complete: <br />
           {checkbox.state.join(' 🔶 ')} <br />
         </div>
-      ) : null}
+      ) : null} */}
     </div>
   );
 }

@@ -24,29 +24,39 @@ h1 {
   letter-spacing: 4px;
 }
 
-.addButton {
-  margin-left: 2rem;
-  box-shadow: 0px 2px 3px gray;
-  width: 4rem;
-  height: 3em;
-  font-weight: 700;
-  border-radius: 4px;
-  cursor: pointer;
-  background-color: rgb(54, 54, 211);
-  color: #fff;
+.todo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.addButton:hover {
-  background-color: darkgoldenrod;
-  color: #fff;
+.checkbox {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  margin-right: 15px;
+  cursor: pointer;
+  font-size: 15px;
+  color: red;
+  display: flex;
+  justify-content: center;
+  box-shadow: 1px 2px 4px rgb(64, 4, 202);
+  transition: red 0.2s ease-in-out;
+  border: 1px solid #fff;
 }
+.checkbox:hover {
+  background: rgba(1, 1, 19, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0);
+}
+
 input {
   width: 10rem;
-  height: 3em;
+  height: 2.5em;
   box-shadow: 0px 2px 3px gray;
   font-weight: 700;
   font-size: 0.7rem;
-  padding-left:30px;
+  padding-left: 20px;
+  margin-left: 1rem;
 }
 
 footer {
